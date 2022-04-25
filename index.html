@@ -13,27 +13,130 @@
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
     />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
       id="icon"
       rel="icon"
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖥️</text></svg>"
     />
   </head>
   <style>
+    :root {
+      --mainColor: #03a9f4;
+    }
+
     body {
       background-color: #1c1b1e;
       color: #e5e1e5;
       font-family: 'Roboto', sans-serif;
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+    }
+
+    main {
       padding: 1rem;
     }
 
-    h1 {
+    a {
+      color: unset;
+    }
+
+    footer {
+      position: fixed;
+      text-align: center;
+      bottom: 1rem;
+      font-size: 1rem;
+      width: calc(100% - 2rem);
+      padding: 0 1rem;
+    }
+
+    input {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+
+      transition: bottom 0.5s ease-in-out;
+    }
+
+    @media only screen and (max-width: 650px) {
+      input {
+        bottom: 5rem;
+      }
+    }
+
+    .logo div {
+      color: #fff;
+      font-size: 15vw;
+      position: absolute;
       margin: 0;
+    }
+
+    .logo div:nth-child(1) {
+      color: transparent;
+      -webkit-text-stroke: 1px var(--mainColor);
+    }
+
+    .logo div:nth-child(2) {
+      color: var(--mainColor);
+      animation: animate 4s ease-in-out infinite;
+    }
+
+    @keyframes animate {
+      0%,
+      100% {
+        clip-path: polygon(
+          0% 45%,
+          16% 44%,
+          33% 50%,
+          54% 60%,
+          70% 61%,
+          84% 59%,
+          100% 52%,
+          100% 100%,
+          0% 100%
+        );
+      }
+
+      50% {
+        clip-path: polygon(
+          0% 60%,
+          15% 65%,
+          34% 66%,
+          51% 62%,
+          67% 50%,
+          84% 45%,
+          100% 46%,
+          100% 100%,
+          0% 100%
+        );
+      }
     }
   </style>
   <body>
     <main>
-      <h1>hello.</h1>
-      <hr />
+      <div class="logo">
+        <div>furman.dev</div>
+        <div>furman.dev</div>
+      </div>
     </main>
+    <footer>
+      <div class="animate__animated animate__fadeInUp animate__delay-1s">
+        Want a website or other coding project? hmu:&nbsp;
+        <a
+          href="&#109;&#97;&#105;l&#116;o&#58;and&#114;&#37;&#54;5&#37;77&#64;f&#117;rm&#97;n&#46;d%65&#118;"
+          >&#97;n&#100;re&#119;&#64;f&#117;rm&#97;&#110;&#46;&#100;&#101;v</a
+        >
+      </div>
+    </footer>
   </body>
+  <input
+    class="animate__animated animate__fadeIn animate__delay-4s"
+    type="color"
+    value="#03a9f4"
+    aria-label="pick a color"
+    oninput="document.documentElement.style.setProperty('--mainColor', this.value)"
+  />
 </html>
